@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园三维导览 - 校园公共信息与数据展示中心</title>
+  <!-- 课堂七 A-Frame 场景搬迁：库文件全部本地化，可离线运行 -->
+  <script src="libs/aframe.min.js"></script>
+  <style>
+    html, body {
+      margin: 0; height: 100%; overflow: hidden;
+      font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* ---------- 顶部覆盖栏 ---------- */
+    #topBar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; padding: 10px 16px; flex-wrap: wrap;
+      background: linear-gradient(90deg, rgba(23,74,133,.92), rgba(31,95,168,.88));
+      color: #fff;
+    }
+    #topBar .back-link {
+      color: #aee6df; text-decoration: none; font-size: 14px;
+      border: 1px solid rgba(174,230,223,.6); border-radius: 20px;
+      padding: 4px 14px; white-space: nowrap;
+    }
+    #topBar .back-link:hover { background: rgba(174,230,223,.15); }
+    #topBar h1 { font-size: clamp(15px, 1.6vw, 20px); margin: 0; font-weight: 700; letter-spacing: .05em; }
+    #netBadge {
+      font-size: 12.5px; border-radius: 20px; padding: 3px 12px;
+      background: rgba(43,179,163,.25); border: 1px solid rgba(174,230,223,.5);
+      white-space: nowrap;
+    }
+    body.is-offline #netBadge { background: rgba(229,57,53,.3); border-color: rgba(255,138,128,.7); }
+
+    /* ---------- 断网提示条（离线时出现，场景本身仍可正常浏览） ---------- */
+    #offlineBanner {
+      position: fixed; top: 56px; left: 0; right: 0; z-index: 20;
+      display: none; padding: 9px 16px; text-align: center;
+      background: #ffe8e6; color: #b71c1c; font-size: 13.5px;
+      border-bottom: 1px solid #f3c3bf;
+    }
+    body.is-offline #offlineBanner { display: block; }
+
+    /* ---------- 底部操作提示 ---------- */
+    #bottomHint {
+      position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+      z-index: 20; max-width: calc(100% - 24px);
+      background: rgba(23,74,133,.78); color: rgba(255,255,255,.92);
+      font-size: 12.5px; border-radius: 20px; padding: 6px 18px;
+      white-space: nowrap; text-align: center;
+    }
+    #errStat { font-weight: 700; color: #aee6df; margin-left: 6px; }
+    body.has-error #errStat { color: #ff8a80; }
+
+    /* 隐藏 A-Frame 默认的 VR/全屏按钮（本导览为普通网页浏览模式） */
+    .a-enter-vr, .a-orientation-modal { display: none !important; }
+
+    /* 小屏下提示文字缩小并允许折行，避免遮挡与横向溢出 */
+    @media (max-width: 576px) {
+      #bottomHint { font-size: 11.5px; white-space: normal; border-radius: 12px; padding: 6px 12px; }
+      #offlineBanner { top: 76px; font-size: 12.5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ 顶部栏：可返回首页 ============ -->
+  <div id="topBar">
+    <a class="back-link" href="../index.html">&laquo; 返回首页</a>
+    <h1>校园三维导览</h1>
+    <span id="netBadge">网络状态：在线</span>
+  </div>
+
+  <!-- ============ 断网提示 ============ -->
+  <div id="offlineBanner">
+    您当前处于<strong>离线（断网）状态</strong>：本场景的 A-Frame 库与全部场景资源均已本地化，可继续正常拖拽浏览。
+  </div>
+
+  <!-- ============ A-Frame 三维场景（课堂七 campus 场景扩展） ============ -->
+  <a-scene vr-mode-ui="enabled: false" renderer="antialias: true; alpha: false; powerPreference: high-performance" embedded>
+
+    <!-- 环境 -->
+    <a-sky color="#bfe4f8"></a-sky>
+
+    <!-- 草地大地面 -->
+    <a-plane position="0 0 -2" rotation="-90 0 0" width="44" height="44" color="#8bc34a"></a-plane>
+
+    <!-- 中央道路：连接校门与教学楼群 -->
+    <a-plane position="0 0.01 2" rotation="-90 0 0" width="4.2" height="20" color="#9e9e9e"></a-plane>
+
+    <!-- ========== 地标 1：教学楼（课堂七原样：方盒+红屋顶） ========== -->
+    <a-box position="-4.2 1.2 -6" width="4" height="2.4" depth="2" color="#efeeee"></a-box>
+    <a-box position="-4.2 2.7 -6" width="4.4" height="0.4" depth="2.4" color="#b71c1c"></a-box>
+
+    <!-- ========== 地标 2：图书馆（蓝色玻璃幕墙建筑） ========== -->
+    <a-box position="3.6 1.4 -7" width="3.8" height="2.8" depth="2.4" color="#90caf9"></a-box>
+    <a-box position="3.6 3 -7" width="4.2" height="0.4" depth="2.8" color="#1565c0"></a-box>
+
+    <!-- ========== 地标 3：钟楼（高塔+红色尖顶+钟面） ========== -->
+    <a-cylinder position="0.3 2 -6.4" radius="0.75" height="4" color="#d7ccc8"></a-cylinder>
+    <a-cone position="0.3 4.6 -6.4" radius-bottom="0.95" height="1.7" color="#b71c1c"></a-cone>
+    <a-cylinder position="0.3 3.2 -5.62" radius="0.32" height="0.05" color="#263238" rotation="90 0 0"></a-cylinder>
+
+    <!-- ========== 地标 4：校门（双柱+横梁） ========== -->
+    <a-box position="-3 1.5 8.4" width="0.6" height="3" depth="0.6" color="#8d6e63"></a-box>
+    <a-box position="3 1.5 8.4" width="0.6" height="3" depth="0.6" color="#8d6e63"></a-box>
+    <a-box position="0 3.25 8.4" width="6.6" height="0.55" depth="0.7" color="#6d4c41"></a-box>
+
+    <!-- ========== 旗杆与旗帜（课堂七原样：旗帜带飘扬动画） ========== -->
+    <a-cylinder position="-2.2 1.8 1.5" radius="0.05" height="3.6" color="#9e9e9e"></a-cylinder>
+    <a-box position="-1.85 3.3 1.5" width="0.7" height="0.45" depth="0.03" color="#e53935"
+           animation="property: position; to: -1.8 3.3 1.5; dir: alternate; dur: 900; loop: true"></a-box>
+
+    <!-- ========== 路灯 ×2（课堂七原样：杆+发光球+点光源） ========== -->
+    <a-cylinder position="-3.2 1.2 4.2" radius="0.06" height="2.4" color="#616161"></a-cylinder>
+    <a-sphere position="-3.2 2.5 4.2" radius="0.18" color="#fff59d"
+              animation="property: scale; to: 1.3 1.3 1.3; dir: alternate; dur: 1200; loop: true"></a-sphere>
+    <a-light type="point" position="-3.2 2.6 4.2" color="#fff59d" intensity="0.55"></a-light>
+
+    <a-cylinder position="3.2 1.2 4.2" radius="0.06" height="2.4" color="#616161"></a-cylinder>
+    <a-sphere position="3.2 2.5 4.2" radius="0.18" color="#fff59d"
+              animation="property: scale; to: 1.3 1.3 1.3; dir: alternate; dur: 1200; loop: true"></a-sphere>
+    <a-light type="point" position="3.2 2.6 4.2" color="#fff59d" intensity="0.55"></a-light>
+
+    <!-- ========== 树木 ×3（树干+锥形树冠） ========== -->
+    <a-cylinder position="-7 0.7 3" radius="0.16" height="1.4" color="#795548"></a-cylinder>
+    <a-cone position="-7 2 3" radius-bottom="0.95" height="1.9" color="#43a047"></a-cone>
+
+    <a-cylinder position="7 0.7 -1" radius="0.16" height="1.4" color="#795548"></a-cylinder>
+    <a-cone position="7 2 -1" radius-bottom="0.95" height="1.9" color="#43a047"></a-cone>
+
+    <a-cylinder position="6.5 0.7 6.5" radius="0.14" height="1.2" color="#795548"></a-cylinder>
+    <a-cone position="6.5 1.85 6.5" radius-bottom="0.8" height="1.6" color="#2e7d32"></a-cone>
+
+    <!-- 环境光 -->
+    <a-light type="ambient" color="#ffffff" intensity="0.7"></a-light>
+
+    <!-- 相机初始位：校门外远处平视校园；拖拽环视 / WASD 移动 -->
+    <a-camera position="0 2 13.5" look-controls wasd-controls="acceleration: 30">
+      <a-cursor color="#2bb3a3"></a-cursor>
+    </a-camera>
+  </a-scene>
+
+  <!-- ============ 底部操作提示（含真实 Console 错误计数） ============ -->
+  <div id="bottomHint">
+    鼠标按住拖拽环视校园 · W/A/S/D 键移动位置 · 滚轮键可平移<span id="errStat">Console 错误：0</span>
+  </div>
+
+  <script>
+    /* ---------- 网络状态：在线 / 断网提示（真实监听 online/offline） ---------- */
+    const netBadge = document.getElementById('netBadge');
+    // 根据事件类型判定（真实断网/联网与模拟事件均适用）
+    const updateOnlineStatus = (online) => {
+      document.body.classList.toggle('is-offline', !online);
+      netBadge.textContent = '网络状态：' + (online ? '在线' : '离线');
+    };
+    window.addEventListener('online', () => updateOnlineStatus(true));
+    window.addEventListener('offline', () => updateOnlineStatus(false));
+    updateOnlineStatus(navigator.onLine);
+
+    /* ---------- Console 错误真实计数：脚本错误 / 资源错误 / Promise 异常 ---------- */
+    const errStat = document.getElementById('errStat');
+    let errorCount = 0;
+    const addError = () => {
+      errorCount += 1;
+      errStat.textContent = 'Console 错误：' + errorCount;
+      document.body.classList.add('has-error');
+    };
+    window.addEventListener('error', addError, true);
+    window.addEventListener('unhandledrejection', addError);
+  </script>
+</body>
+</html>
