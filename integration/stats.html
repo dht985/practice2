@@ -49,8 +49,7 @@
     </div>
   </header>
 
-  <!-- ============ 占位内容 ============ -->
-  <main class="container my-5">
+  <main class="container my-4">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">首页</a></li>
@@ -58,26 +57,20 @@
       </ol>
     </nav>
 
-    <div class="placeholder-block">
-      <div class="placeholder-icon">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 20v-8"></path>
-          <path d="M10 20V6"></path>
-          <path d="M16 20v-6"></path>
-          <path d="M21 20H3"></path>
-        </svg>
+    <!-- 状态提示：加载中 / 加载失败 / 空数据（复用课堂六状态模式） -->
+    <div id="chartStatus" class="alert d-none" role="alert"></div>
+
+    <!-- ============ 各自习室使用量柱状图 ============ -->
+    <section class="card border-0 shadow-sm">
+      <div class="card-body">
+        <h2 class="h5">各自习室使用量柱状图</h2>
+        <p class="text-muted small mb-3" id="metaNote">正在读取 data.json…</p>
+        <div id="usageChart" class="chart-box" style="height: 420px;"></div>
+        <p class="text-muted small mt-3 mb-0">
+          说明：图表通过 fetch 加载本地 <code>data/data.json</code> 渲染；标题、单位（人次）与数据来源均标注在图内副标题中。
+        </p>
       </div>
-      <h2>【占位】使用统计图表模块</h2>
-      <p>本区域为模块位置占位，后续步骤中将使用 ECharts 或 Chart.js 实现：</p>
-      <ul>
-        <li>各教学楼自习室上座率对比（柱状图）</li>
-        <li>一天内各时段人流量变化（折线图）</li>
-        <li>整周使用热度分布与统计概览卡片</li>
-      </ul>
-      <div class="mt-4">
-        <a class="btn btn-outline-campus" href="index.html">&laquo; 返回首页</a>
-      </div>
-    </div>
+    </section>
   </main>
 
   <!-- ============ 页脚 ============ -->
@@ -89,5 +82,7 @@
   </footer>
 
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/echarts/echarts.min.js"></script>
+  <script src="js/stats.js"></script>
 </body>
 </html>

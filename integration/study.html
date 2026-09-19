@@ -49,8 +49,7 @@
     </div>
   </header>
 
-  <!-- ============ 占位内容 ============ -->
-  <main class="container my-5">
+  <main class="container my-4">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">首页</a></li>
@@ -58,26 +57,41 @@
       </ol>
     </nav>
 
-    <div class="placeholder-block">
-      <div class="placeholder-icon">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5"></path>
-          <path d="M4 5.5v15"></path>
-          <path d="M20 18H6.5"></path>
-        </svg>
+    <!-- ============ 筛选区（楼层 / 开放状态，选择后即时过滤） ============ -->
+    <section class="card border-0 shadow-sm mb-4">
+      <div class="card-body">
+        <h2 class="h5 mb-3">筛选条件</h2>
+        <div class="row g-3 align-items-end">
+          <div class="col-12 col-sm-6 col-lg-3">
+            <label for="floorFilter" class="form-label">楼层</label>
+            <select id="floorFilter" class="form-select">
+              <option value="all">全部楼层</option>
+              <option value="1">1 楼</option>
+              <option value="2">2 楼</option>
+              <option value="3">3 楼</option>
+              <option value="4">4 楼</option>
+            </select>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <label for="statusFilter" class="form-label">开放状态</label>
+            <select id="statusFilter" class="form-select">
+              <option value="all">全部状态</option>
+              <option value="open">开放中</option>
+              <option value="closed">已关闭</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-3">
+            <button id="resetFilter" type="button" class="btn btn-outline-campus w-100">重置筛选</button>
+          </div>
+          <div class="col-12 col-lg-3 text-lg-end">
+            <span id="resultCount" class="text-muted small"></span>
+          </div>
+        </div>
       </div>
-      <h2>【占位】自习室查询模块</h2>
-      <p>本区域为模块位置占位，后续步骤中将实现以下筛选交互：</p>
-      <ul>
-        <li>按教学楼 / 楼栋筛选自习室</li>
-        <li>按日期与时段查询开放情况</li>
-        <li>按空闲座位数、是否安静区进行条件筛选</li>
-        <li>列表实时展示筛选结果与剩余座位</li>
-      </ul>
-      <div class="mt-4">
-        <a class="btn btn-outline-campus" href="index.html">&laquo; 返回首页</a>
-      </div>
-    </div>
+    </section>
+
+    <!-- ============ 自习室列表（由 js/study.js 渲染） ============ -->
+    <section id="roomList" class="row g-3" aria-live="polite"></section>
   </main>
 
   <!-- ============ 页脚 ============ -->
@@ -89,5 +103,6 @@
   </footer>
 
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/study.js"></script>
 </body>
 </html>

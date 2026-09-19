@@ -1,0 +1,18 @@
+{
+  "title": "各自习室本周使用量",
+  "period": "2026-09-08 至 2026-09-14",
+  "unit": "人次",
+  "source": "校园公共信息与数据展示中心模拟统计数据（教学演示用）",
+  "rooms": [
+    { "name": "文科楼101", "building": "文科楼", "usage": 486 },
+    { "name": "文科楼203", "building": "文科楼", "usage": 0 },
+    { "name": "文科楼305", "building": "文科楼", "usage": 642 },
+    { "name": "理科楼102", "building": "理科楼", "usage": 815 },
+    { "name": "理科楼204", "building": "理科楼", "usage": 573 },
+    { "name": "理科楼301", "building": "理科楼", "usage": 0 },
+    { "name": "图书馆101", "building": "图书馆", "usage": 1320 },
+    { "name": "图书馆201", "building": "图书馆", "usage": 1188 },
+    { "name": "图书馆303", "building": "图书馆", "usage": 394 },
+    { "name": "图书馆401", "building": "图书馆", "usage": 256 }
+  ]
+}
