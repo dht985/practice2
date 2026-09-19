@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用统计 - 校园公共信息与数据展示中心</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ 统一导航栏（四个模块入口） ============ -->
+  <nav class="navbar navbar-expand-lg campus-navbar sticky-top" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <svg class="brand-logo" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 9 12 4 2 9l10 5 10-5Z"></path>
+          <path d="M6 11.5V16c0 1.2 2.7 3 6 3s6-1.8 6-3v-4.5"></path>
+        </svg>
+        <span>校园信息展示中心</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="study.html">自习室</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="stats.html">统计</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="campus3d.html">校园三维</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ 页面标题 ============ -->
+  <header class="page-banner">
+    <div class="container">
+      <h1>使用统计图表</h1>
+    </div>
+  </header>
+
+  <!-- ============ 占位内容 ============ -->
+  <main class="container my-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">首页</a></li>
+        <li class="breadcrumb-item active" aria-current="page">使用统计</li>
+      </ol>
+    </nav>
+
+    <div class="placeholder-block">
+      <div class="placeholder-icon">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 20v-8"></path>
+          <path d="M10 20V6"></path>
+          <path d="M16 20v-6"></path>
+          <path d="M21 20H3"></path>
+        </svg>
+      </div>
+      <h2>【占位】使用统计图表模块</h2>
+      <p>本区域为模块位置占位，后续步骤中将使用 ECharts 或 Chart.js 实现：</p>
+      <ul>
+        <li>各教学楼自习室上座率对比（柱状图）</li>
+        <li>一天内各时段人流量变化（折线图）</li>
+        <li>整周使用热度分布与统计概览卡片</li>
+      </ul>
+      <div class="mt-4">
+        <a class="btn btn-outline-campus" href="index.html">&laquo; 返回首页</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="campus-footer">
+    <div class="container d-flex flex-wrap justify-content-between gap-2">
+      <span>迷你版校园公共信息与数据展示中心 · integration 整合练习</span>
+      <a href="index.html">返回首页</a>
+    </div>
+  </footer>
+
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

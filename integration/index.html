@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页 - 校园公共信息与数据展示中心</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ 统一导航栏（四个模块入口） ============ -->
+  <nav class="navbar navbar-expand-lg campus-navbar sticky-top" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <svg class="brand-logo" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 9 12 4 2 9l10 5 10-5Z"></path>
+          <path d="M6 11.5V16c0 1.2 2.7 3 6 3s6-1.8 6-3v-4.5"></path>
+        </svg>
+        <span>校园信息展示中心</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="study.html">自习室</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="stats.html">统计</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="campus3d.html">校园三维</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ 横幅 ============ -->
+  <header class="campus-hero">
+    <div class="container">
+      <h1>迷你版校园公共信息与数据展示中心</h1>
+      <p>本站为整合练习骨架（integration 目录），汇集自习室实时查询、座位使用数据图表与校园地标三维展示三个模块。当前为第一步：入口与首页已搭建完成，各功能页内容将在后续步骤中逐步填充。</p>
+    </div>
+  </header>
+
+  <!-- ============ 首页模块卡片区块 ============ -->
+  <main class="container my-5">
+    <section>
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+        <h2 class="section-title mb-0">功能模块</h2>
+        <span class="tag-skeleton">骨架阶段 · 内容待填充</span>
+      </div>
+      <p class="text-muted mb-4">点击卡片中的按钮可进入对应模块页面；每个模块的具体位置与规划如下。</p>
+
+      <div class="row g-4">
+
+        <!-- 卡片 1：自习室查询 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card module-card">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="module-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5"></path>
+                    <path d="M4 5.5v15"></path>
+                    <path d="M20 18H6.5"></path>
+                  </svg>
+                </span>
+                <h3 class="card-title h5 mb-0">自习室查询</h3>
+              </div>
+              <p class="card-text flex-grow-1">占位说明：此处对应「自习室查询」模块（页面 study.html）。后续将实现按楼栋、时段、空闲状态筛选自习室的交互功能。</p>
+              <a class="btn btn-campus mt-3 align-self-start" href="study.html">进入模块 &raquo;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片 2：使用统计图表 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card module-card">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="module-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 20v-8"></path>
+                    <path d="M10 20V6"></path>
+                    <path class="bar" d="M16 20v-6"></path>
+                    <path d="M21 20H3"></path>
+                  </svg>
+                </span>
+                <h3 class="card-title h5 mb-0">使用统计图表</h3>
+              </div>
+              <p class="card-text flex-grow-1">占位说明：此处对应「使用统计图表」模块（页面 stats.html）。后续将使用 ECharts 或 Chart.js 展示各楼栋上座率与时段趋势。</p>
+              <a class="btn btn-campus mt-3 align-self-start" href="stats.html">进入模块 &raquo;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片 3：校园地标三维区 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card module-card">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="module-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 3 21 7.5v9L12 21 3 16.5v-9L12 3Z"></path>
+                    <path d="M3 7.5 12 12l9-4.5"></path>
+                    <path d="M12 12v9"></path>
+                  </svg>
+                </span>
+                <h3 class="card-title h5 mb-0">校园地标三维区</h3>
+              </div>
+              <p class="card-text flex-grow-1">占位说明：此处对应「校园地标三维区」模块（页面 campus3d.html）。后续将使用 Three.js 或 A-Frame 搭建可交互的校园地标三维场景。</p>
+              <a class="btn btn-campus mt-3 align-self-start" href="campus3d.html">进入模块 &raquo;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="campus-footer">
+    <div class="container d-flex flex-wrap justify-content-between gap-2">
+      <span>迷你版校园公共信息与数据展示中心 · integration 整合练习</span>
+      <a href="index.html">返回首页</a>
+    </div>
+  </footer>
+
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

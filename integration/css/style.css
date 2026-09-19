@@ -1,0 +1,243 @@
+/* ============================================================
+   校园公共信息与数据展示中心 —— 自定义样式
+   仅作为 Bootstrap 5.3 的补充，不覆盖其核心栅格与组件行为
+   ============================================================ */
+
+:root {
+  --campus-primary: #1f5fa8;
+  --campus-primary-dark: #174a85;
+  --campus-accent: #2bb3a3;
+  --campus-ink: #1f2d3d;
+  --campus-muted: #5c6b7a;
+  --campus-bg: #f4f7fb;
+}
+
+html,
+body {
+  overflow-x: hidden; /* 防止任何宽度下出现横向滚动条 */
+}
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  color: var(--campus-ink);
+  background-color: var(--campus-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* ---------- 导航栏 ---------- */
+.campus-navbar {
+  background: linear-gradient(90deg, var(--campus-primary-dark), var(--campus-primary));
+  box-shadow: 0 2px 10px rgba(23, 74, 133, 0.25);
+}
+
+.campus-navbar .navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: clamp(0.95rem, 1.2vw + 0.7rem, 1.25rem);
+  white-space: nowrap;
+}
+
+.campus-navbar .brand-logo {
+  flex: 0 0 auto;
+  color: #aee6df;
+}
+
+.campus-navbar .nav-link {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.campus-navbar .nav-link:hover,
+.campus-navbar .nav-link:focus {
+  color: #aee6df;
+}
+
+.campus-navbar .nav-link.active {
+  color: #fff;
+}
+
+.campus-navbar .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.25rem;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--campus-accent);
+}
+
+.campus-navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.campus-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(43, 179, 163, 0.35);
+}
+
+/* ---------- 首页横幅 ---------- */
+.campus-hero {
+  background: linear-gradient(120deg, rgba(23, 74, 133, 0.92), rgba(31, 95, 168, 0.88)),
+    radial-gradient(circle at 85% 20%, rgba(43, 179, 163, 0.55), transparent 55%);
+  color: #fff;
+  padding: 4rem 0 3.5rem;
+}
+
+.campus-hero h1 {
+  font-size: clamp(1.5rem, 2.6vw + 0.8rem, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.campus-hero p {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(0.95rem, 0.6vw + 0.8rem, 1.1rem);
+}
+
+/* ---------- 模块卡片 ---------- */
+.section-title {
+  font-weight: 700;
+  color: var(--campus-primary-dark);
+  position: relative;
+  padding-left: 0.85rem;
+}
+
+.section-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 5px;
+  border-radius: 3px;
+  background-color: var(--campus-accent);
+}
+
+.module-card {
+  border: 0;
+  border-radius: 0.9rem;
+  background-color: #fff;
+  box-shadow: 0 4px 16px rgba(31, 45, 61, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.module-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(31, 45, 61, 0.16);
+}
+
+.module-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--campus-primary), var(--campus-accent));
+}
+
+.module-card .card-title {
+  font-weight: 700;
+  color: var(--campus-ink);
+}
+
+.module-card .card-text {
+  color: var(--campus-muted);
+  font-size: 0.95rem;
+}
+
+.tag-skeleton {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--campus-primary-dark);
+  background-color: rgba(31, 95, 168, 0.1);
+  border-radius: 1rem;
+  padding: 0.2rem 0.65rem;
+}
+
+.btn-campus {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--campus-primary);
+  --bs-btn-border-color: var(--campus-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--campus-primary-dark);
+  --bs-btn-hover-border-color: var(--campus-primary-dark);
+  --bs-btn-active-bg: var(--campus-primary-dark);
+  --bs-btn-active-border-color: var(--campus-primary-dark);
+}
+
+.btn-outline-campus {
+  --bs-btn-color: var(--campus-primary);
+  --bs-btn-border-color: var(--campus-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--campus-primary);
+  --bs-btn-hover-border-color: var(--campus-primary);
+  --bs-btn-active-bg: var(--campus-primary-dark);
+  --bs-btn-active-border-color: var(--campus-primary-dark);
+}
+
+/* ---------- 子页面占位区 ---------- */
+.page-banner {
+  background: linear-gradient(120deg, var(--campus-primary-dark), var(--campus-primary));
+  color: #fff;
+  padding: 2.6rem 0;
+}
+
+.page-banner h1 {
+  font-size: clamp(1.4rem, 2vw + 0.8rem, 2.1rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+.placeholder-block {
+  border: 2px dashed #b9c9da;
+  border-radius: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.placeholder-block .placeholder-icon {
+  color: var(--campus-primary);
+  margin-bottom: 1rem;
+}
+
+.placeholder-block h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--campus-primary-dark);
+}
+
+.placeholder-block p,
+.placeholder-block li {
+  color: var(--campus-muted);
+}
+
+.placeholder-block ul {
+  display: inline-block;
+  text-align: left;
+}
+
+/* ---------- 页脚 ---------- */
+.campus-footer {
+  background-color: var(--campus-primary-dark);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 1.4rem 0;
+  font-size: 0.88rem;
+}
+
+.campus-footer a {
+  color: #aee6df;
+  text-decoration: none;
+}
